@@ -1,22 +1,24 @@
-import copyImg from "../assets/images/copy.svg"
+import toast from "react-hot-toast";
 
-import "../styles/room-code.scss"
+import copyImg from "../assets/images/copy.svg";
+
+import "../styles/room-code.scss";
 
 type RoomCodeProps = {
-    code: string
-}
+    code: string;
+};
 
-export function RoomCode (props: RoomCodeProps) {
-
+export function RoomCode(props: RoomCodeProps) {
     function copyRoomCodeToClipboard() {
         navigator.clipboard.writeText(props.code);
+        toast.success("Código copiado!");
     }
     return (
-        <button className="room-code">
+        <button className="room-code" onClick={copyRoomCodeToClipboard}>
             <div>
                 <img src={copyImg} alt="Copy room code" />
             </div>
             <span>Sala #{props.code}</span>
         </button>
-    )
+    );
 }
