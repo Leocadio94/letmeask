@@ -10,7 +10,13 @@
     justify-content: center;
     cursor: pointer;
     border: 0;
-    transition: filter .2s;
+    transition: filter 0.2s;
+
+    &.outlined {
+        background: #ffffff;
+        color: #835af2;
+        border: 1px solid #835af2;
+    }
 
     img {
         margin-right: 8px;

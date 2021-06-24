@@ -40,6 +40,11 @@ export function Home() {
             return;
         }
 
+        if (roomRef.val().closedAt) {
+            alert("Room already closed");
+            return;
+        }
+
         history.push(`/rooms/${roomCode}`);
     }
 
@@ -65,7 +70,9 @@ export function Home() {
                         <input
                             type="text"
                             placeholder="Digite o código da sala"
-                            onChange={event => setRoomCode(event.target.value)}
+                            onChange={(event) =>
+                                setRoomCode(event.target.value)
+                            }
                             value={roomCode}
                         />
 

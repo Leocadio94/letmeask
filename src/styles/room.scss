@@ -13,6 +13,15 @@
             > img {
                 max-height: 45px;
             }
+
+            > div {
+                display: flex;
+                gap: 16px;
+
+                > button {
+                    height: 40px;
+                }
+            }
         }
     }
 
@@ -41,6 +50,10 @@
                 font-size: 15px;
             }
         }
+
+        .question-list {
+            margin-top: 32px;
+        }
     }
 
     form {
@@ -53,6 +66,14 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
             resize: vertical;
             min-height: 130px;
+            outline: none;
+            border: 1px solid transparent;
+            transition: border 0.2s;
+
+            &:focus,
+            &:active {
+                border: 1px solid #835afd;
+            }
         }
 
         .form-footer {
@@ -67,7 +88,7 @@
 
                 img {
                     width: 32px;
-                    height:  32px;
+                    height: 32px;
                     border-radius: 50%;
                 }
 
@@ -87,7 +108,7 @@
                 button {
                     background: transparent;
                     border: 0;
-                    color: #835AFD;
+                    color: #835afd;
                     text-decoration: underline;
                     font-size: 14px;
                     font-weight: 500;
