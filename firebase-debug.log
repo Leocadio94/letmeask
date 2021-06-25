@@ -1,0 +1,21 @@
+[debug] [2021-06-25T01:50:02.455Z] ----------------------------------------------------------------------
+[debug] [2021-06-25T01:50:02.457Z] Command:       /home/gabriel/.nvm/versions/node/v14.17.0/bin/node /home/gabriel/.yarn/bin/firebase init
+[debug] [2021-06-25T01:50:02.457Z] CLI Version:   9.14.0
+[debug] [2021-06-25T01:50:02.457Z] Platform:      linux
+[debug] [2021-06-25T01:50:02.457Z] Node Version:  v14.17.0
+[debug] [2021-06-25T01:50:02.458Z] Time:          Thu Jun 24 2021 22:50:02 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2021-06-25T01:50:02.458Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-25T01:50:02.462Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-25T01:50:02.462Z] > authorizing via signed-in user (gabrielsilva94@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/gabriel/Development/nlw/aulas/letmeask
+
