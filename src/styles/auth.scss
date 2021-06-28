@@ -17,7 +17,7 @@
         }
 
         strong {
-            font: 700 36px "Poppins", sans-serif;
+            font: 700 36px 'Poppins', sans-serif;
             line-height: 42px;
             margin-top: 16px;
         }
@@ -53,7 +53,7 @@
         h2 {
             font-size: 24px;
             margin: 64px 0 24px;
-            font-family: "Poppins", sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         form {
@@ -81,9 +81,8 @@
             margin-top: 16px;
 
             a {
-                color: #E559F9;
+                color: #e559f9;
             }
-            
         }
     }
 
@@ -99,7 +98,7 @@
         justify-content: center;
         cursor: pointer;
         border: 0;
-        transition: filter .2s;
+        transition: filter 0.2s;
 
         img {
             margin-right: 8px;
@@ -117,18 +116,16 @@
         display: flex;
         align-items: center;
 
-
         &::before {
-            content: "";
+            content: '';
             flex: 1;
             height: 1px;
             background: #a8a8b3;
             margin-right: 16px;
         }
 
-
         &::after {
-            content: "";
+            content: '';
             flex: 1;
             height: 1px;
             background: #a8a8b3;

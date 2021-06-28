@@ -1,20 +1,20 @@
-import { FormEvent, useState } from "react";
-import { useParams } from "react-router-dom";
+import { FormEvent, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from 'react-hot-toast';
 
-import logoImg from "../assets/images/logo.svg";
+import logoImg from '../assets/images/logo.svg';
 
-import { Button } from "../components/Button";
-import { RoomCode } from "../components/RoomCode";
-import { Question } from "../components/Question";
+import { Button } from '../components/Button';
+import { RoomCode } from '../components/RoomCode';
+import { Question } from '../components/Question';
 
-import { useAuth } from "../hooks/useAuth";
-import { useRoom } from "../hooks/useRoom";
+import { useAuth } from '../hooks/useAuth';
+import { useRoom } from '../hooks/useRoom';
 
-import { database } from "../services/firebase";
+import { database } from '../services/firebase';
 
-import "../styles/room.scss";
+import '../styles/room.scss';
 
 type RoomParams = {
     id: string;
@@ -23,7 +23,7 @@ type RoomParams = {
 export function Room() {
     const { user } = useAuth();
     const params = useParams<RoomParams>();
-    const [newQuestion, setNewQuestion] = useState("");
+    const [newQuestion, setNewQuestion] = useState('');
     const roomId = params.id;
 
     const { questions, roomTitle } = useRoom(roomId);
@@ -31,12 +31,12 @@ export function Room() {
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
 
-        if (newQuestion.trim() === "") {
+        if (newQuestion.trim() === '') {
             return;
         }
 
         if (!user) {
-            throw new Error("You must be logged in");
+            throw new Error('You must be logged in');
         }
 
         const question = {
@@ -51,9 +51,9 @@ export function Room() {
 
         await database.ref(`rooms/${roomId}/questions`).push(question);
 
-        setNewQuestion("");
+        setNewQuestion('');
 
-        toast.success("Pergunta enviada!");
+        toast.success('Pergunta enviada!');
     }
 
     async function handleLikeQuestion(
@@ -127,7 +127,7 @@ export function Room() {
                             {!question.isAnswered && (
                                 <button
                                     className={`like-button ${
-                                        question.likeId ? "liked" : ""
+                                        question.likeId ? 'liked' : ''
                                     }`}
                                     type="button"
                                     aria-label="Marcar como gostei"

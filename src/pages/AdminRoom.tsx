@@ -1,20 +1,20 @@
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from 'react-router-dom';
 
-import { Toaster } from "react-hot-toast";
+import { Toaster } from 'react-hot-toast';
 
-import logoImg from "../assets/images/logo.svg";
-import deleteImg from "../assets/images/delete.svg";
-import checkImg from "../assets/images/check.svg";
-import answerImg from "../assets/images/answer.svg";
+import logoImg from '../assets/images/logo.svg';
+import deleteImg from '../assets/images/delete.svg';
+import checkImg from '../assets/images/check.svg';
+import answerImg from '../assets/images/answer.svg';
 
-import { Button } from "../components/Button";
-import { RoomCode } from "../components/RoomCode";
-import { Question } from "../components/Question";
+import { Button } from '../components/Button';
+import { RoomCode } from '../components/RoomCode';
+import { Question } from '../components/Question';
 
-import { useRoom } from "../hooks/useRoom";
+import { useRoom } from '../hooks/useRoom';
 
-import "../styles/room.scss";
-import { database } from "../services/firebase";
+import '../styles/room.scss';
+import { database } from '../services/firebase';
 
 type RoomParams = {
     id: string;
@@ -29,18 +29,18 @@ export function AdminRoom() {
     const { questions, roomTitle } = useRoom(roomId);
 
     async function handleEndRoom() {
-        if (window.confirm("Tem certeza que você deseja encerrar esta sala?")) {
+        if (window.confirm('Tem certeza que você deseja encerrar esta sala?')) {
             await database.ref(`rooms/${roomId}`).update({
                 closedAt: new Date(),
             });
 
-            history.push("/");
+            history.push('/');
         }
     }
 
     async function handleDeleteQuestion(questionId: string) {
         if (
-            window.confirm("Tem certeza que você deseja excluir esta pergunta?")
+            window.confirm('Tem certeza que você deseja excluir esta pergunta?')
         ) {
             await database
                 .ref(`rooms/${roomId}/questions/${questionId}`)
