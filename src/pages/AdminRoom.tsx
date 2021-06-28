@@ -6,6 +6,7 @@ import logoImg from '../assets/images/logo.svg';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
+import emptyQuestionsImg from '../assets/images/empty-questions.svg';
 
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
@@ -64,7 +65,10 @@ export function AdminRoom() {
         <div id="page-room">
             <header>
                 <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
+                    <a href="/">
+                        <img src={logoImg} alt="Letmeask" />
+                    </a>
+
                     <div>
                         <RoomCode code={roomId} />
                         <Button isOutlined onClick={handleEndRoom}>
@@ -83,53 +87,74 @@ export function AdminRoom() {
                 </div>
 
                 <div className="question-list">
-                    {questions.map((question) => (
-                        <Question
-                            key={question.id}
-                            content={question.content}
-                            author={question.author}
-                            isAnswered={question.isAnswered}
-                            isHighlighted={question.isHighlighted}
-                        >
-                            {!question.isAnswered && (
-                                <>
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            handleCheckQuestionAsAnswered(
-                                                question.id
-                                            )
-                                        }
-                                    >
-                                        <img
-                                            src={checkImg}
-                                            alt="Marca pergunta como respondida"
-                                        />
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            handleHighlightQuestion(question.id)
-                                        }
-                                    >
-                                        <img
-                                            src={answerImg}
-                                            alt="Dar destaque à pergunta"
-                                        />
-                                    </button>
-                                </>
-                            )}
-
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    handleDeleteQuestion(question.id)
-                                }
+                    {questions.length > 0 ? (
+                        questions.map((question) => (
+                            <Question
+                                key={question.id}
+                                content={question.content}
+                                author={question.author}
+                                isAnswered={question.isAnswered}
+                                isHighlighted={question.isHighlighted}
                             >
-                                <img src={deleteImg} alt="Remover pergunta" />
-                            </button>
-                        </Question>
-                    ))}
+                                {!question.isAnswered && (
+                                    <>
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleCheckQuestionAsAnswered(
+                                                    question.id
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={checkImg}
+                                                alt="Marca pergunta como respondida"
+                                            />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleHighlightQuestion(
+                                                    question.id
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={answerImg}
+                                                alt="Dar destaque à pergunta"
+                                            />
+                                        </button>
+                                    </>
+                                )}
+
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        handleDeleteQuestion(question.id)
+                                    }
+                                >
+                                    <img
+                                        src={deleteImg}
+                                        alt="Remover pergunta"
+                                    />
+                                </button>
+                            </Question>
+                        ))
+                    ) : (
+                        <div className="empty-question-list">
+                            <img
+                                src={emptyQuestionsImg}
+                                alt="Lista de questões vazia"
+                            />
+
+                            <h2>Nenhuma pergunta por aqui...</h2>
+
+                            <p>
+                                Envie o código desta sala para seus amigos e
+                                comece a responder perguntas!
+                            </p>
+                        </div>
+                    )}
                 </div>
             </main>
 
