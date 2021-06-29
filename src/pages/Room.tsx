@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -23,6 +23,7 @@ type RoomParams = {
 
 export function Room() {
     const { user } = useAuth();
+    const history = useHistory();
     const params = useParams<RoomParams>();
     const [newQuestion, setNewQuestion] = useState('');
     const roomId = params.id;
@@ -74,6 +75,10 @@ export function Room() {
         }
     }
 
+    async function handleExitRoom() {
+        history.push('/');
+    }
+
     return (
         <div id="page-room">
             <header>
@@ -82,7 +87,13 @@ export function Room() {
                         <img src={logoImg} alt="Letmeask" />
                     </a>
 
-                    <RoomCode code={roomId} />
+                    <div>
+                        <RoomCode code={roomId} />
+
+                        <Button isOutlined onClick={handleExitRoom}>
+                            Sair da sala
+                        </Button>
+                    </div>
                 </div>
             </header>
 
